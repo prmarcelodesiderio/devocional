@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Devocional Maná Diário</title>
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>Devocional Maná Diário</h1>
+      <nav>
+        <a href="/">Início</a>
+        <a href="/client/pages/theology">Base teológica</a>
+      </nav>
+    </header>
+    <main>
+      <section class="generator" aria-labelledby="generator-title">
+        <h2 id="generator-title">Gerador de Conteúdo</h2>
+        <p>
+          Esta é uma prévia da experiência de geração de conteúdo devocional. Os recursos
+          avançados ainda estão em desenvolvimento.
+        </p>
+        <button id="generateBtn" type="button" class="primary-button">
+          Gerar conteúdo de exemplo
+        </button>
+        <article id="generatedContent" class="card hidden" aria-live="polite"></article>
+        <aside id="generationDisclaimer" class="disclaimer hidden" role="note">
+          <strong>Aviso:</strong> O conteúdo gerado é apenas um exemplo e não deve substituir a
+          leitura bíblica, aconselhamento pastoral ou acompanhamento teológico. Revise sempre antes
+          de compartilhar com sua comunidade.
+        </aside>
+      </section>
+
+      <section class="feature-flags" aria-labelledby="flags-title">
+        <h2 id="flags-title">Recursos em desenvolvimento</h2>
+        <p>Os módulos abaixo dependem das nossas feature flags de segurança.</p>
+        <ul class="feature-list">
+          <li data-feature="study">
+            <h3>Estudos bíblicos</h3>
+            <p>
+              Aprofunde-se em estudos guiados e planos semanais quando o recurso estiver ativo.
+            </p>
+          </li>
+          <li data-feature="rag">
+            <h3>Pesquisa assistida (RAG)</h3>
+            <p>
+              Consulte rapidamente a base documental para apoiar seus devocionais no futuro.
+            </p>
+          </li>
+          <li data-feature="export">
+            <h3>Exportação</h3>
+            <p>Compartilhe devocionais em PDF e outros formatos assim que liberarmos a função.</p>
+          </li>
+        </ul>
+        <p id="featureFlagStatus" class="flag-status"></p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <small>&copy; <span id="currentYear"></span> Devocional Maná Diário</small>
+    </footer>
+
+    <script src="/scripts/app.js" type="module"></script>
+  </body>
+</html>
