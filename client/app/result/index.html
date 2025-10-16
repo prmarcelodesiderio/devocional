@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resultado do Sermão - Logos AI</title>
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>Logos AI</h1>
+      <nav>
+        <a href="/">Início</a>
+        <a href="/client/pages/theology">Base teológica</a>
+        <a href="/client/app/(wizard)/sermon">Gerar sermão</a>
+      </nav>
+    </header>
+    <main>
+      <section class="result" aria-live="polite">
+        <header class="result__header">
+          <h2 id="resultTitle">Sermão gerado</h2>
+          <button id="copySermonBtn" type="button" class="secondary-button" disabled>
+            Copiar tudo
+          </button>
+        </header>
+        <p id="resultMeta" class="result__meta"></p>
+        <div id="sermonAccordion" class="accordion" role="presentation"></div>
+        <aside id="resultDisclaimer" class="disclaimer" role="note">
+          <strong>Aviso pastoral:</strong> revise o conteúdo gerado, confirme as referências bíblicas
+          em sua própria Bíblia e adapte a mensagem para a sua comunidade antes de apresentar.
+        </aside>
+      </section>
+      <p id="resultFeedback" class="form-feedback" role="status" aria-live="polite"></p>
+    </main>
+    <footer class="footer">
+      <small>&copy; <span id="currentYear"></span> Logos AI</small>
+    </footer>
+    <script src="/scripts/app.js" type="module"></script>
+    <script src="/scripts/result-viewer.js" type="module"></script>
+  </body>
+</html>
