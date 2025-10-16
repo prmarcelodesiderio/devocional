@@ -67,10 +67,12 @@ function showCurrentYear() {
 }
 
 async function bootstrap() {
-  window.LogosAI = { ensureUserId };
+  window.LogosAI = window.LogosAI || {};
+  window.LogosAI.ensureUserId = ensureUserId;
   showCurrentYear();
   const flags = await loadFeatureFlags();
   applyFeatureFlags(flags);
+  window.LogosAI.flags = flags;
 }
 
 if (typeof document !== 'undefined') {

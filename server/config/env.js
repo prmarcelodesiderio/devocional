@@ -17,7 +17,7 @@ const envConfig = {
   featureFlags: {
     study: toBool(process.env.FF_STUDY || 'false'),
     rag: toBool(process.env.FF_RAG || 'false'),
-    export: toBool(process.env.FF_EXPORT || 'false'),
+    export: toBool(process.env.FF_EXPORT || 'true'),
   },
 };
 
