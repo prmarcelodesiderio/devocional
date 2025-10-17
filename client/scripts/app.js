@@ -43,6 +43,10 @@ function applyFeatureFlags(flags) {
     if (!enabled) {
       moduleElement.classList.add('disabled');
       moduleElement.setAttribute('aria-disabled', 'true');
+      moduleElement.setAttribute(
+        'aria-disabled',
+        'true'
+      );
       inactive.push(flagKey);
     } else {
       moduleElement.classList.remove('disabled');
@@ -57,6 +61,39 @@ function applyFeatureFlags(flags) {
       statusElement.textContent = `Os módulos ${inactive.join(', ')} estão temporariamente desativados.`;
     }
   }
+}
+
+      statusElement.textContent = `Os módulos ${inactive.join(
+        ', '
+      )} estão temporariamente desativados.`;
+    }
+  }
+}
+
+function setupGenerator() {
+  const button = document.getElementById('generateBtn');
+  const output = document.getElementById('generatedContent');
+  const disclaimer = document.getElementById('generationDisclaimer');
+
+  if (!button || !output || !disclaimer) {
+    return;
+  }
+
+  button.addEventListener('click', () => {
+    output.classList.remove('hidden');
+    output.innerHTML = `
+      <h3>Exemplo de Devocional</h3>
+      <p>
+        "Bendize, ó minha alma, ao SENHOR, e tudo o que há em mim bendiga o seu santo nome."
+        (Salmos 103:1)
+      </p>
+      <p>
+        Reserve alguns minutos para agradecer a Deus pelas Suas misericórdias. Este texto foi
+        gerado automaticamente para fins demonstrativos.
+      </p>
+    `;
+    disclaimer.classList.remove('hidden');
+  });
 }
 
 function showCurrentYear() {
@@ -78,3 +115,10 @@ async function bootstrap() {
 if (typeof document !== 'undefined') {
   document.addEventListener('DOMContentLoaded', bootstrap);
 }
+  showCurrentYear();
+  setupGenerator();
+  const flags = await loadFeatureFlags();
+  applyFeatureFlags(flags);
+}
+
+document.addEventListener('DOMContentLoaded', bootstrap);

@@ -63,6 +63,8 @@ main {
 .wizard,
 .feature-flags,
 .result {
+.generator,
+.feature-flags {
   background: rgba(15, 23, 42, 0.75);
   border-radius: 16px;
   padding: 2rem;
