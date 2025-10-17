@@ -1,3 +1,22 @@
+const USER_STORAGE_KEY = 'logosai-user-id';
+
+function ensureUserId() {
+  try {
+    const existing = window.localStorage.getItem(USER_STORAGE_KEY);
+    if (existing) {
+      return existing;
+    }
+    const identifier = typeof crypto !== 'undefined' && crypto.randomUUID
+      ? crypto.randomUUID()
+      : `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+    window.localStorage.setItem(USER_STORAGE_KEY, identifier);
+    return identifier;
+  } catch (error) {
+    console.warn('Não foi possível persistir o identificador local do usuário.', error);
+    return undefined;
+  }
+}
+
 async function loadFeatureFlags() {
   try {
     const response = await fetch('/api/config/feature-flags');
@@ -23,6 +42,7 @@ function applyFeatureFlags(flags) {
 
     if (!enabled) {
       moduleElement.classList.add('disabled');
+      moduleElement.setAttribute('aria-disabled', 'true');
       moduleElement.setAttribute(
         'aria-disabled',
         'true'
@@ -38,6 +58,11 @@ function applyFeatureFlags(flags) {
     if (inactive.length === 0) {
       statusElement.textContent = 'Todos os módulos estão ativos.';
     } else {
+      statusElement.textContent = `Os módulos ${inactive.join(', ')} estão temporariamente desativados.`;
+    }
+  }
+}
+
       statusElement.textContent = `Os módulos ${inactive.join(
         ', '
       )} estão temporariamente desativados.`;
@@ -79,6 +104,17 @@ function showCurrentYear() {
 }
 
 async function bootstrap() {
+  window.LogosAI = window.LogosAI || {};
+  window.LogosAI.ensureUserId = ensureUserId;
+  showCurrentYear();
+  const flags = await loadFeatureFlags();
+  applyFeatureFlags(flags);
+  window.LogosAI.flags = flags;
+}
+
+if (typeof document !== 'undefined') {
+  document.addEventListener('DOMContentLoaded', bootstrap);
+}
   showCurrentYear();
   setupGenerator();
   const flags = await loadFeatureFlags();

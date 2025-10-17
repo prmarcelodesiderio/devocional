@@ -3,37 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Devocional Maná Diário</title>
+    <title>Logos AI</title>
     <link rel="stylesheet" href="/styles/main.css" />
   </head>
   <body>
     <header class="topbar">
-      <h1>Devocional Maná Diário</h1>
+      <h1>Logos AI</h1>
       <nav>
         <a href="/">Início</a>
         <a href="/client/pages/theology">Base teológica</a>
+        <a href="/client/app/(wizard)/sermon">Gerar sermão</a>
       </nav>
     </header>
     <main>
-      <section class="generator" aria-labelledby="generator-title">
-        <h2 id="generator-title">Gerador de Conteúdo</h2>
+      <section class="hero" aria-labelledby="hero-title">
+        <h2 id="hero-title">Planeje sermões fiéis com clareza e rapidez</h2>
         <p>
-          Esta é uma prévia da experiência de geração de conteúdo devocional. Os recursos
-          avançados ainda estão em desenvolvimento.
+          Logos AI auxilia pastores e líderes cristãos a estruturarem mensagens bíblicas com
+          responsabilidade teológica. Ative o assistente gratuito para gerar esboços orientados por
+          Escrituras e cuide do seu tempo de preparo.
         </p>
-        <button id="generateBtn" type="button" class="primary-button">
-          Gerar conteúdo de exemplo
-        </button>
-        <article id="generatedContent" class="card hidden" aria-live="polite"></article>
-        <aside id="generationDisclaimer" class="disclaimer hidden" role="note">
-          <strong>Aviso:</strong> O conteúdo gerado é apenas um exemplo e não deve substituir a
-          leitura bíblica, aconselhamento pastoral ou acompanhamento teológico. Revise sempre antes
-          de compartilhar com sua comunidade.
-        </aside>
+        <a class="primary-button" href="/client/app/(wizard)/sermon">Iniciar assistente gratuito</a>
       </section>
 
       <section class="feature-flags" aria-labelledby="flags-title">
-        <h2 id="flags-title">Recursos em desenvolvimento</h2>
+        <h2 id="flags-title">Guardrails em ação</h2>
         <p>Os módulos abaixo dependem das nossas feature flags de segurança.</p>
         <ul class="feature-list">
           <li data-feature="study">
@@ -58,7 +52,7 @@
     </main>
 
     <footer class="footer">
-      <small>&copy; <span id="currentYear"></span> Devocional Maná Diário</small>
+      <small>&copy; <span id="currentYear"></span> Logos AI</small>
     </footer>
 
     <script src="/scripts/app.js" type="module"></script>

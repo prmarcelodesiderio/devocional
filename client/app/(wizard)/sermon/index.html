@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assistente de Sermão - Logos AI</title>
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>Logos AI</h1>
+      <nav>
+        <a href="/">Início</a>
+        <a href="/client/pages/theology">Base teológica</a>
+        <a href="/client/app/(wizard)/sermon" aria-current="page">Gerar sermão</a>
+      </nav>
+    </header>
+    <main>
+      <section class="wizard" aria-labelledby="wizard-title">
+        <h2 id="wizard-title">Assistente gratuito de sermão</h2>
+        <p>
+          Conte-nos qual mensagem você precisa preparar e a Logos AI montará um esboço estruturado.
+          Recomendamos revisar o resultado com oração e consulta pastoral antes de compartilhar.
+        </p>
+        <form id="sermonForm" class="wizard-form">
+          <div class="form-group">
+            <label for="sermonType">Tipo</label>
+            <input id="sermonType" name="type" type="text" value="Sermão" readonly />
+          </div>
+          <div class="form-group">
+            <label for="sermonCategory">Categoria</label>
+            <select id="sermonCategory" name="category" required>
+              <option value="">Selecione uma categoria</option>
+              <option value="Temático">Temático</option>
+              <option value="Textual">Textual</option>
+              <option value="Biográfico">Biográfico</option>
+              <option value="Expositivo">Expositivo</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="sermonTheme">Tema ou texto-base</label>
+            <textarea
+              id="sermonTheme"
+              name="theme"
+              rows="3"
+              required
+              placeholder="Ex.: A luz do mundo em João 8"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="sermonDepth">Profundidade</label>
+            <select id="sermonDepth" name="depth" required>
+              <option value="curto">Curto</option>
+            </select>
+          </div>
+          <button type="submit" class="primary-button" id="generateSermonBtn">Gerar esboço</button>
+        </form>
+        <p id="wizardFeedback" class="form-feedback" role="status" aria-live="polite"></p>
+      </section>
+    </main>
+    <footer class="footer">
+      <small>&copy; <span id="currentYear"></span> Logos AI</small>
+    </footer>
+    <script src="/scripts/app.js" type="module"></script>
+    <script src="/scripts/wizard-sermon.js" type="module"></script>
+  </body>
+</html>
